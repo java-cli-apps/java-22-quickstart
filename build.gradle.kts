@@ -18,7 +18,7 @@ java {
 }
 
 application {
-    mainClass.set("App")
+    mainClass.set("Application")
 }
 
 tasks.named<Test>("test") {
