@@ -1,9 +1,27 @@
-class Application {
-    public static void main(String[] args) {
-        System.out.println(new Application().getGreeting());
+///usr/bin/env java --source 22 --enable-preview --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
+
+import api.Greeting;
+import api.Greeting.Language;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+
+import java.util.concurrent.Callable;
+
+@Command(name = "PolyglotHello", mixinStandardHelpOptions = true)
+class Application implements Callable<Integer> {
+
+    @Option(names = { "-l", "--language"}, required = true, description = "Valid values are: ${COMPLETION-CANDIDATES}")
+    private Language language;
+
+    @Override
+    public Integer call() {
+        System.out.println(Greeting.build(language).getGreeting());
+        return 0;
     }
 
-    public String getGreeting() {
-        return "Hello World!";
+    void main(String[] args) {
+        int exitCode = new CommandLine(new Application()).execute(args);
+        System.exit(exitCode);
     }
 }
