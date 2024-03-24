@@ -17,7 +17,8 @@ comme décrit dans la [JEP 330](https://openjdk.org/jeps/330).
 
 ## Changer le nom de l'application
 
-TODO: A revoir.
+Pour changer le nom de l'application, initialement nommée _Quickstart_, il faut modifier la variable APP_NAME dans
+le fichier `.envrc`, par exemple comme suit :
 
 ## Lancer l'application localement
 

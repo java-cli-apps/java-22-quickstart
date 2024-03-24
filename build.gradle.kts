@@ -2,6 +2,9 @@ plugins {
     application
 }
 
+val STARTER_APP = "Application"
+val APP_NAME = System.getenv("APP_NAME")
+
 repositories {
     mavenCentral()
 }
@@ -23,15 +26,15 @@ distributions {
         contents {
             from("src/main/java") {
                 include("**/*.java")
-                rename("Application", "QuickStart")
+                rename(STARTER_APP, APP_NAME)
                 into("src")
             }
-            from(configurations["runtimeClasspath"]) {
+            from(configurations.runtimeClasspath) {
                 into("lib")
             }
             from("bin") {
-                include("Application.sh")
-                rename("Application", "QuickStart")
+                include("*.sh")
+                rename(STARTER_APP, APP_NAME)
                 into("bin")
             }
         }
@@ -39,7 +42,7 @@ distributions {
 }
 
 tasks.named<Zip>("scriptsDistZip") {
-    archiveFileName.set("QuickStart.zip")
+    archiveFileName.set("${APP_NAME}.zip")
 }
 
 tasks.withType<JavaExec> {
@@ -47,7 +50,7 @@ tasks.withType<JavaExec> {
 }
 
 application {
-    mainClass.set("src/main/java/Application.java")
+    mainClass.set("src/main/java/${STARTER_APP}.java")
 }
 
 tasks.named<Test>("test") {

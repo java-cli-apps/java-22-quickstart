@@ -1,7 +1,4 @@
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
-		| sort \
-		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-30s\033[0m %s\n", $$1, $$2) }'
+.DEFAULT_GOAL := help
 
 package: ## Packager l'application dans un fichier .zip
 	./gradlew scriptsDistZip
@@ -18,12 +15,20 @@ test-install: .check-install-dir ## Tester l'application installée
 clean: ## Nettoyer le répertoire de build
 	rm --force --recursive $(BUILD)
 
-.check-install-dir:
-	@test -n '$(DEST_DIR)' || { \
-		echo "You need to specify an installation directory and an application name, for example 'DEST_DIR=~ APP_NAME=MyCmdLine make install'"; \
-		exit 1; \
-	}
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| sort \
+		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-30s\033[0m %s\n", $$1, $$2) }'
 
-APP_NAME := $(or $(APP_NAME), QuickStart)
+.check-install-dir:
+ifndef DEST_DIR
+	$(error Please set the installation directory, for example DEST_DIR=~ make install)
+endif
+
 APP_DIR := $(APP_NAME)
 BUILD := build
+STARTER_APP := Application
+
+ifndef APP_NAME
+	$(error Please set the application name with the APP_NAME variable !)
+endif
