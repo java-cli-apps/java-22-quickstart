@@ -27,7 +27,6 @@ endif
 
 APP_DIR := $(APP_NAME)
 BUILD := build
-STARTER_APP := Application
 
 ifndef APP_NAME
 	$(error Please set the application name with the APP_NAME variable !)
