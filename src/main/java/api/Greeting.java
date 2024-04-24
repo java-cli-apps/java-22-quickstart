@@ -11,7 +11,7 @@ public interface Greeting {
 
     String getGreeting();
 
-    static Greeting build(Language language) {
+    static Greeting byLanguage(Language language) {
         return switch (language) {
             case French -> new Bonjour();
             case English -> new Hello();

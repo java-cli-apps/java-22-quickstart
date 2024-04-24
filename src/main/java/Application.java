@@ -16,7 +16,7 @@ class Application implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        System.out.println(Greeting.build(language).getGreeting());
+        System.out.println(Greeting.byLanguage(language).getGreeting());
         return 0;
     }
 
