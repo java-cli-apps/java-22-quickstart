@@ -1,7 +1,7 @@
 ///usr/bin/env java --source 22 --enable-preview --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
-import api.Greeting;
-import api.Greeting.Language;
+import language.api.Greeting;
+import language.api.Greeting.Language;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;

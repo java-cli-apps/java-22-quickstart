@@ -1,6 +1,6 @@
-package fr;
+package language.fr;
 
-import api.Greeting;
+import language.api.Greeting;
 
 public class Bonjour implements Greeting {
 

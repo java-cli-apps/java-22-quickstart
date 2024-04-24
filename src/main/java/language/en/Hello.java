@@ -1,6 +1,6 @@
-package en;
+package language.en;
 
-import api.Greeting;
+import language.api.Greeting;
 
 public class Hello implements Greeting {
 

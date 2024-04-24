@@ -1,7 +1,7 @@
-package api;
+package language.api;
 
-import en.Hello;
-import fr.Bonjour;
+import language.en.Hello;
+import language.fr.Bonjour;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
