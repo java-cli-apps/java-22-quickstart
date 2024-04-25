@@ -4,6 +4,7 @@ import language.api.Greeting;
 import language.api.Greeting.Language;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.ExitCode;
 import picocli.CommandLine.Option;
 
 import java.util.concurrent.Callable;
@@ -17,7 +18,7 @@ class Application implements Callable<Integer> {
     @Override
     public Integer call() {
         System.out.println(Greeting.byLanguage(language).getGreeting());
-        return 0;
+        return ExitCode.OK;
     }
 
     void main(String[] args) {
