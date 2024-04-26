@@ -38,7 +38,7 @@ make package
 ### Shell de lancement
 
 Le script de lancement [Application.sh](bin/Application.sh), dont le rôle est de lancer le fichier
-[Application.java](src/Application.java), est renommé lors de la construction du package en `MyCmdLine.sh`.
+[Application.java](src/main/java/Application.java), est renommé lors de la construction du package en `MyCmdLine.sh`.
 
 Cela permet d'ajouter plusieurs applications dans le `PATH` et donc d'invoquer directement `MyCmdLine.sh`.
 
