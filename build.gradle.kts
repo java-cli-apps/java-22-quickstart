@@ -5,20 +5,20 @@ plugins {
 val STARTER_APP = "Application"
 val APP_NAME = System.getenv("APP_NAME")
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(libs.picocli)
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+application {
+    mainClass.set("src/main/java/${STARTER_APP}.java")
 }
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(22))
     }
+}
+
+dependencies {
+    implementation(libs.picocli)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 distributions {
@@ -49,10 +49,10 @@ tasks.withType<JavaExec> {
     jvmArgs = listOf("--source", "22", "--enable-preview")
 }
 
-application {
-    mainClass.set("src/main/java/${STARTER_APP}.java")
-}
-
 tasks.named<Test>("test") {
     useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
 }
