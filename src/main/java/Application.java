@@ -21,7 +21,7 @@ class Application implements Callable<Integer> {
         return ExitCode.OK;
     }
 
-    void main(String[] args) {
+    void main(String... args) {
         int exitCode = new CommandLine(new Application()).execute(args);
         System.exit(exitCode);
     }
