@@ -17,12 +17,13 @@ class Application implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        System.out.println(Greeting.byLanguage(language).getGreeting());
+        var greeting = Greeting.byLanguage(language);
+        System.out.println(greeting.getGreeting());
         return ExitCode.OK;
     }
 
     void main(String... args) {
-        int exitCode = new CommandLine(new Application()).execute(args);
+        var exitCode = new CommandLine(new Application()).execute(args);
         System.exit(exitCode);
     }
 }
