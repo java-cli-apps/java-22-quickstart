@@ -21,7 +21,7 @@ de votre nouvelle application à partir de ce template, vous pouvez suivre les �
 
 ### Changer le nom de l'application
 
-Pour changer le nom de l'application, initialement nommée _BasicQuickstart_, il faut positionner la variable `APP_NAME`
+Pour changer le nom de l'application, initialement nommée _Quickstart_, il faut positionner la variable `APP_NAME`
 dans le terminal comme suit :
 
 ```bash
@@ -31,7 +31,7 @@ $ export APP_NAME=MyCmdLine
 ### Lancer l'application localement
 
 ```bash
-$ make test
+$ make run-app
 ```
 
 ```console
@@ -71,7 +71,7 @@ unzip -q -d /home/user build/distributions/QuickStart.zip
 ### Lancer l'application installée
 
 ```bash
-$ DEST_DIR=/home/user make test-install
+$ DEST_DIR=/home/user make run-installed-app
 ```
 
 ```console
