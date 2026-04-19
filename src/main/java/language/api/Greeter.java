@@ -3,7 +3,7 @@ package language.api;
 import language.en.Hello;
 import language.fr.Bonjour;
 
-public interface Greeter {
+interface Greeter {
 
     enum Language  {
         French, English
