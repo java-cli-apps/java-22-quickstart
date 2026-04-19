@@ -1,7 +1,7 @@
 //usr/bin/env java --source 22 --enable-preview --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
-import language.api.Greeting;
-import language.api.Greeting.Language;
+import language.api.Greeter;
+import language.api.Greeter.Language;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.ExitCode;
@@ -17,8 +17,8 @@ class Application implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        var greeting = Greeting.byLanguage(language);
-        System.out.println(greeting.getGreeting());
+        var greeting = Greeter.byLanguage(language);
+        System.out.println(greeting.greet());
         return ExitCode.OK;
     }
 
